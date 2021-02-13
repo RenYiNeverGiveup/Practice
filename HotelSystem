@@ -1,0 +1,56 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class HotelSystem {
+
+    public static void main(String[] args) {
+        //创建酒店对象
+       Hotel hotel = new Hotel();
+
+        /*
+        首先输出一个欢迎界面
+        */
+        System.out.println("************************");
+        System.out.println("   欢迎使用本酒店管理系统  ");
+        System.out.println("   请输入对于的功能编号：  ");
+        System.out.println("   1    查看房间列表     ");
+        System.out.println("   2    订房            ");
+        System.out.println("   3    退房            ");
+        System.out.println("   0    退出系统         ");
+        System.out.println("************************");
+        Scanner s = new Scanner(System.in);
+        boolean flag = true;
+        //循环一直可以使用
+        while (flag){
+            System.out.print("请输入功能编号：");
+            int i = s.nextInt();
+            switch (i){
+                case 0:
+                    System.out.println("已退出系统，欢迎下次光临！");
+                    flag = false;
+                    break;
+                case 1:
+                    hotel.print();
+                    break;
+
+                case 2:
+                    System.out.print("请输入订房编号");
+                    Scanner s1 = new Scanner(System.in);
+                    int i1 = s1.nextInt();
+                    hotel.order(i1);
+                    break;
+                case 3:
+                    System.out.print("请输入退房编号");
+                    Scanner s2 = new Scanner(System.in);
+                    int i2 = s2.nextInt();
+                    hotel.exit(i2);
+                    break;
+
+                default:
+                    System.out.println("输入功能编号有误，请重新输入");
+
+            }
+        }
+    }
+}
